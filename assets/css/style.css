@@ -15,13 +15,13 @@ article section ul {margin: 10px 0px 10px 30px;}
 article section ul li {list-style: square; line-height: 1.5;}
 
 .nav-bar {position: fixed; display: table; background-color: var(--navbar-bg-color); color: var(--main-bg-color); padding: 5px;}
-.nav-bar.large-screen-nav {width: 225px; overflow-y: auto; height: 100%; text-align: center;}
+.nav-bar.large-screen-nav {width: 250px; overflow-y: auto; height: 100%; text-align: center; padding: 5px 20px;}
 .nav-bar.small-screen-nav {width: 100%; height: 40px !important;}
 
 .large-screen-nav>div {display: table-cell; vertical-align: middle;}
 .large-screen-nav .intro {margin: 0px 0px 15px 0px;}
 .large-screen-nav .intro img {height: 200px; width: auto; border-radius: 50%;}
-.large-screen-nav .intro .name {margin: 10px 0px 15px 0px; font-size: 20px;}
+.large-screen-nav .intro .name {margin: 10px 0px 10px 0px; font-size: 30px;}
 .large-screen-nav .intro .info {margin: 10px 0px; font-size: 15px;}
 
 .small-screen-nav .intro {width: 50%; display: inline-block;}
@@ -36,7 +36,7 @@ article section ul li {list-style: square; line-height: 1.5;}
 .nav li:hover {background-color: var(--navbar-font-color); color: var(--navbar-bg-color)}
 nav li {padding: 16px 40px;}
 
-.social-media li {width: 25px; display: inline-block; margin: 15px 0px 15px 0px;}
+.social-media li {width: 40px; display: inline-block; margin: 15px 0px 15px 0px;}
 .social-media li:hover {color: var(--navbar-font-color);}
 
 article {margin-left: 235px; margin-right: 235px; padding: 10px 14px;}
@@ -56,5 +56,5 @@ article>header div, section>header div {display: inline; border-bottom: var(--na
 @media(min-width: 1024px) {
   .large-screen-nav {display: table;}
   .small-screen-nav {display: none;}
-  article {margin-left: 235px; margin-right: 235px; padding-top: 0px;}
+  article {margin-left: 320px; margin-right: 320px; padding-top: 25px;}
 }
