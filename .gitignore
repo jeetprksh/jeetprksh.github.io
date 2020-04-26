@@ -2,3 +2,5 @@
 Gemfile.lock
 *.gem
 .jekyll-cache/
+.firebase/
+.firebaserc
