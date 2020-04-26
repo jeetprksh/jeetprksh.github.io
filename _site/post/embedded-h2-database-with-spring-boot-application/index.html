@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    
+    <meta charset="UTF-8">
+
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Jeet Prakash | A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks.</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Jeet Prakash" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks." />
+<meta property="og:description" content="A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks." />
+<link rel="canonical" href="http://localhost:4000/post/embedded-h2-database-with-spring-boot-application/" />
+<meta property="og:url" content="http://localhost:4000/post/embedded-h2-database-with-spring-boot-application/" />
+<meta property="og:site_name" content="Jeet Prakash" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/post/embedded-h2-database-with-spring-boot-application/","headline":"Jeet Prakash","description":"A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="p:domain_verify" content="088dc7d68720cc4014d248298c89cd76"/>
+    <meta name="google-site-verification" content="K2MeQSzrjQ-CHvlyAogP4R6jeowzhGBPVUcKwy2pcOo" />
+    <meta name="msvalidate.01" content="68050BF12F70F53C25A0178BB1B9C3AA" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
+    <link rel="canonical" href="/">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Jeet Prakash</h1>
+      <h2 class="project-tagline">A Developer's point of view.<br>Everything about Software Engineering, Architecture and Frameworks.</h2>
+      <a href="/" class="btn">Home</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="embedded-h2-database-with-spring-boot-application">Embedded H2 Database with Spring Boot Application</h1>
+
+<p>It’s a well known fact that when we are building a web application it is nearly impossible to do away with some form of data storage. There’s got to be a database, relational or non-relational, where we need to store the business data to be retrieved and used later. Desktop applications too might require some useful data to be be stored locally like application settings, cached data from servers etc.</p>
+
+<p>H2 is one of the lightweight and open source relational database management system written in java and can be easily embedded in java applications or run in client server mode. In this post we are going to use H2 database embedded in a Spring Boot application. And for the sake simplicity we will only creating a dummy application setting record on out embedded H2 database and then retrieving the same record. So let’s begin!</p>
+
+<h2 id="setting-up-spring-boot-project">Setting up Spring Boot project</h2>
+
+<p>Setting up a Spring Boot project is quite easy. Head to <a href="https://start.spring.io/">Spring Initializr</a> website and fill in the appropriate details on left under “Project Metadata”. Under “Dependencies” fill in H2 and JPA as dependencies and hit “Generate Project”. This will download a preconfigured spring boot project that we can open with our favourite IDE.</p>
+
+<p><img src="./img01.png" alt="Spring Initializr" title="Generating Project from Spring Initializr" /></p>
+
+<p>Once we have our initial project setup with IDE, we can start adding more details on it.</p>
+
+<h2 id="adding-jpa-repository-and-entity">Adding JPA Repository and Entity</h2>
+
+<p>Next up is adding database Entity and corresponding Spring Data JPA Repository to do CRUD operation on that repository. Since we have decided to save application settings into embedded H2 database we would need to create an entity class for Application Settings.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.jeetprksh.h2.boot.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplicationSetting</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Integer</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">userEmail</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">cachingEnabled</span><span class="o">;</span>
+
+    <span class="nc">ApplicationSetting</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">ApplicationSetting</span><span class="o">(</span><span class="nc">String</span> <span class="n">userEmail</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">cachingEnabled</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">userEmail</span> <span class="o">=</span> <span class="n">userEmail</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">cachingEnabled</span> <span class="o">=</span> <span class="n">cachingEnabled</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"ApplicationSetting{"</span> <span class="o">+</span>
+                <span class="s">"id="</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">", userEmail='"</span> <span class="o">+</span> <span class="n">userEmail</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span>
+                <span class="s">", cachingEnabled="</span> <span class="o">+</span> <span class="n">cachingEnabled</span> <span class="o">+</span>
+                <span class="sc">'}'</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And declare a Spring Data Repository interface.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.jeetprksh.h2.boot.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.jeetprksh.h2.boot.entity.ApplicationSetting</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.repository.CrudRepository</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AppSettingRepository</span> <span class="kd">extends</span> <span class="nc">CrudRepository</span><span class="o">&lt;</span><span class="nc">ApplicationSetting</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now we need to Autowire this repository and do the saving and fetching of application settings.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.jeetprksh.h2.boot.app</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.jeetprksh.h2.boot.dao.AppSettingRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.jeetprksh.h2.boot.entity.ApplicationSetting</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.domain.EntityScan</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.config.EnableJpaRepositories</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="o">;</span>
+
+<span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">scanBasePackages</span> <span class="o">=</span> <span class="s">"com.jeetprksh.h2.boot"</span><span class="o">)</span>
+<span class="nd">@EnableJpaRepositories</span><span class="o">(</span><span class="s">"com.jeetprksh.h2.boot"</span><span class="o">)</span>
+<span class="nd">@EntityScan</span><span class="o">(</span><span class="s">"com.jeetprksh.h2.boot"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="nc">AppSettingRepository</span> <span class="n">repository</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+		<span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">new</span> <span class="nc">ApplicationSetting</span><span class="o">(</span><span class="s">"abc@def.ghi"</span><span class="o">,</span> <span class="kc">true</span><span class="o">));</span>
+		<span class="n">repository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">setting</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">setting</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="o">});</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRepository</span><span class="o">(</span><span class="nc">AppSettingRepository</span> <span class="n">repository</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Application</span><span class="o">.</span><span class="na">repository</span> <span class="o">=</span> <span class="n">repository</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> I decided to add/retrieve the settings in the configuration file itself, but it would have been better off in an appropriate service.</p>
+
+<h2 id="setting-application-properties">Setting Application Properties</h2>
+
+<p>Our application would require following properties:</p>
+
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Datasource
+</span><span class="py">spring.datasource.url</span><span class="p">=</span><span class="s">jdbc:h2:file:~/embedded-db</span>
+<span class="py">spring.datasource.username</span><span class="p">=</span><span class="s">sa</span>
+<span class="py">spring.datasource.password</span><span class="p">=</span>
+<span class="py">spring.datasource.driver-class-name</span><span class="p">=</span><span class="s">org.h2.Driver</span>
+
+<span class="c"># JPA
+</span><span class="py">spring.jpa.hibernate.ddl-auto</span><span class="p">=</span><span class="s">update</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">Spring.datasource.url</code>: Here we give the connection URL to the database. Since we are using embedded H2 database which saves all of its data in local file system we will be giving in the path to the file which will be used to store data. In our case this file will be in user’s home directory.</li>
+  <li><code class="highlighter-rouge">Spring.datasource.username</code>: The user name for H2 database.</li>
+  <li><code class="highlighter-rouge">Spring.datasource.password</code>: Password for database, by default it does not have one.</li>
+  <li><code class="highlighter-rouge">Spring.datasource.driver-class-name</code>: The driver class that would be used.</li>
+  <li><code class="highlighter-rouge">Spring.jpa.hibernate.ddl-auto</code>: Setting this property to “update” will enable application to use existing database and not drop the database on each startup.</li>
+</ul>
+
+<h2 id="running-the-project">Running the Project</h2>
+
+<p>There are numerous ways to run a spring boot project. Let’s do it with creating executable jar with maven, following commands would do it:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
+<span class="nb">cd</span> .<span class="se">\t</span>arget<span class="se">\</span>
+java <span class="nt">-jar</span> .<span class="se">\h</span>2-springboot-embedded-0.0.1-SNAPSHOT.jar
+</code></pre></div></div>
+
+<p><img src="./img02.png" alt="Running the Project" title="Running the executable jar" /></p>
+
+<p>Notice that after running this application a file will be created in user home directory with name embedded-db.mv.db which will be having our database schema and all the records we will be saving into it.</p>
+
+<h2 id="code">Code</h2>
+<p>All the working code for this project is available on this <a href="https://github.com/jeetprksh/h2-springboot-embedded">github</a> repository.</p>
+
+<h2 id="useful-links">Useful Links</h2>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/H2_(DBMS)">H2 DBMS</a></li>
+  <li><a href="http://www.h2database.com/html/main.html">http://www.h2database.com/html/main.html</a></li>
+  <li><a href="https://start.spring.io/">https://start.spring.io/</a></li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This blog uses <a target="_blank" href="https://pages-themes.github.io/cayman/">Cayman Theme</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

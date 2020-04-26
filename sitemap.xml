@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url> 
+    <loc>https://jeetprksh.com/</loc> 
+    <image:image>
+      <image:loc>https://jeetprksh.com/assets/images/me.jpg</image:loc>
+      <image:caption>Jeet Prakash, Full Stack Developer</image:caption>
+    </image:image>
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/about-me/</loc> 
+    <image:image>
+      <image:loc>https://jeetprksh.com/assets/images/me.jpg</image:loc>
+      <image:caption>Jeet Prakash, Full Stack Developer</image:caption>
+    </image:image>
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/post/why-design-patterns/</loc> 
+    <image:image>
+      <image:loc>https://awoiaf.westeros.org/thumb.php?f=King%27s_Landing.jpg&amp;width=800</image:loc>
+      <image:caption>You must be wondering what Kings Landing has to do with Design Patterns</image:caption>
+    </image:image>
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/</loc>
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/post/embedded-h2-database-with-spring-boot-application/</loc> 
+    <image:image>
+      <image:loc>https://jeetprksh.com/post/embedded-h2-database-with-spring-boot-application/img01.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://jeetprksh.com/post/embedded-h2-database-with-spring-boot-application/img02.png</image:loc>
+    </image:image>
+  </url>
+</urlset>
