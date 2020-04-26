@@ -1,5 +1,6 @@
 ---
 layout: default
+canonical_url: 'https://jeetprksh.com/post/why-design-patterns/'
 ---
 
 # Why Design Patterns?

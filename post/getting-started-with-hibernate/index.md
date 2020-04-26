@@ -1,5 +1,6 @@
 ---
 layout: default
+canonical_url: 'https://jeetprksh.com/post/getting-started-with-hibernate/'
 ---
 
 # Getting Started With Hibernate

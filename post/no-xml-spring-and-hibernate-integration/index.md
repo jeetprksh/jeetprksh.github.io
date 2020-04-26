@@ -1,5 +1,6 @@
 ---
 layout: default
+canonical_url: 'https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/'
 ---
 
 # No XML Spring and Hibernate Integration

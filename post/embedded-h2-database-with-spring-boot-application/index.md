@@ -1,5 +1,6 @@
 ---
 layout: default
+canonical_url: 'https://jeetprksh.com/post/embedded-h2-database-with-spring-boot-application/'
 ---
 
 # Embedded H2 Database with Spring Boot Application

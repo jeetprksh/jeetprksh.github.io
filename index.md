@@ -1,5 +1,6 @@
 ---
 layout: default
+canonical_url: 'https://jeetprksh.com'
 ---
 
 ## Getting Started With Hibernate
