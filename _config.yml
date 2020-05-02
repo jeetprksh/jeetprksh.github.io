@@ -1,5 +1,13 @@
-title: Jeet Prakash
-description: A Developer's point of view.<br>Everything about Software Engineering, Architecture and Frameworks.
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-cayman
+author: jeetprksh
+twitter:
+  username: jeetprksh
+  card: summary
+social:
+  name: Jeet Prakash
+  links:
+    - https://twitter.com/jeetprksh
+    - https://www.linkedin.com/in/jeetprakash
+    - https://github.com/jeetprksh

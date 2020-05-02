@@ -1,6 +1,9 @@
 ---
 layout: default
 canonical_url: 'https://jeetprksh.com'
+title: Jeet Prakash
+description: A Developer's point of view. Everything about Software Engineering, Architecture and Frameworks.
+tags: [jeet, prakash, blog, developer, software]
 ---
 
 ## Getting Started With Hibernate
@@ -12,7 +15,7 @@ Why should we care about using design patterns in our projects? [(read)](/post/w
 
 
 ## No XML Spring and Hibernate Integration
-Creating end to end Spring Hibernate application without any XML. [(read)](/post/no-xml-spring-and-hibernate-integration/)
+Creating an end to end Spring Hibernate application without using any XML configuration. [(read)](/post/no-xml-spring-and-hibernate-integration/)
 
 
 ## Embedded H2 Database with Spring Boot Application

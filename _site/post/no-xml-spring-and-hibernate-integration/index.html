@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
 
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Jeet Prakash | A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks.</title>
+<title>No XML Spring and Hibernate Integration | Jeet Prakash</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Jeet Prakash" />
+<meta property="og:title" content="No XML Spring and Hibernate Integration" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks." />
-<meta property="og:description" content="A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks." />
+<meta name="description" content="Creating an end to end Spring Hibernate application without using any XML configuration" />
+<meta property="og:description" content="Creating an end to end Spring Hibernate application without using any XML configuration" />
 <link rel="canonical" href="https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/" />
 <meta property="og:url" content="https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/" />
 <meta property="og:site_name" content="Jeet Prakash" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/","headline":"Jeet Prakash","description":"A Developer’s point of view.Everything about Software Engineering, Architecture and Frameworks.","@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"https://jeetprksh.com/post/no-xml-spring-and-hibernate-integration/","headline":"No XML Spring and Hibernate Integration","description":"Creating an end to end Spring Hibernate application without using any XML configuration","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,17 +33,15 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">Jeet Prakash</h1>
-      <h2 class="project-tagline">A Developer's point of view.<br>Everything about Software Engineering, Architecture and Frameworks.</h2>
+      <h1 class="project-name">No XML Spring and Hibernate Integration</h1>
+      <h2 class="project-tagline">Creating an end to end Spring Hibernate application without using any XML configuration</h2>
       <a href="/" class="btn">Home</a>
       
       
     </header>
 
     <main id="content" class="main-content" role="main">
-      <h1 id="no-xml-spring-and-hibernate-integration">No XML Spring and Hibernate Integration</h1>
-
-<p>Back in the pre Spring 3.1 days, we had to configure each and every bean into one of the spring configuration files which only happens to be an XML. And so if we were building a web application with Spring which is also using a relational database to store all its data, we needed to create a bean tag into one of those spring configuration XML files for reading out database connection properties to create a data source bean, which we then feed as a parameter to yet another bean tag to create a database session factory bean.</p>
+      <p>Back in the pre Spring 3.1 days, we had to configure each and every bean into one of the spring configuration files which only happens to be an XML. And so if we were building a web application with Spring which is also using a relational database to store all its data, we needed to create a bean tag into one of those spring configuration XML files for reading out database connection properties to create a data source bean, which we then feed as a parameter to yet another bean tag to create a database session factory bean.</p>
 
 <p>In this post we will be building a small restful web application with Spring MVC integrated with Hibernate to fetch the user record from MySQL database server and display it as a JSON response on the browser, without writing a single XML file. Furthermore we will also be doing away with tomcat’s web.xml leveraging latest Servlet 3.1 APIs and doing all of that configuration in our Java classes. So what are we waiting for!</p>
 
