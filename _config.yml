@@ -7,6 +7,7 @@ exclude:
   - jekyll-theme-cayman.gemspec
   - LICENSE
   - README.md
+  - script
 twitter:
   username: jeetprksh
   card: summary
