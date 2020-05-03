@@ -2,6 +2,11 @@ show_downloads: false
 google_analytics:
 theme: jekyll-theme-cayman
 author: jeetprksh
+exclude:
+  - firebase.json
+  - jekyll-theme-cayman.gemspec
+  - LICENSE
+  - README.md
 twitter:
   username: jeetprksh
   card: summary
