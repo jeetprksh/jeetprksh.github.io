@@ -8,6 +8,7 @@ exclude:
   - LICENSE
   - README.md
   - script
+  - Dockerfile
 twitter:
   username: jeetprksh
   card: summary
