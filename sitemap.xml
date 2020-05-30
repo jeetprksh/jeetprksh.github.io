@@ -5,16 +5,18 @@
   <url> 
     <loc>https://jeetprksh.com/</loc> 
     <image:image>
-      <image:loc>https://jeetprksh.com/assets/images/me.jpg</image:loc>
       <image:caption>Jeet Prakash, Full Stack Developer</image:caption>
     </image:image>
   </url>
   <url> 
-    <loc>https://jeetprksh.com/about-me/</loc> 
+    <loc>https://jeetprksh.com/post/what-is-application-scalability/</loc> 
     <image:image>
-      <image:loc>https://jeetprksh.com/assets/images/me.jpg</image:loc>
-      <image:caption>Jeet Prakash, Full Stack Developer</image:caption>
+      <image:loc>https://jeetprksh.com/post/what-is-application-scalability/img03.png</image:loc>
+      <image:caption>Load Balanced and Vertically Scaled Solution</image:caption>
     </image:image>
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/post/getting-started-with-hibernate/</loc>
   </url>
   <url> 
     <loc>https://jeetprksh.com/post/why-design-patterns/</loc> 
