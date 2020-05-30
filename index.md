@@ -6,6 +6,10 @@ description: A Developer's point of view. Everything about Software Engineering,
 tags: [jeet, prakash, blog, developer, software]
 ---
 
+## What is Application Scalability?
+What to do when your application starts trending and then drowning in a huge load? [(read)](/post/what-is-application-scalability/)
+
+
 ## Getting Started With Hibernate
 Setting up a simple Hibernate project without using any web framework. [(read)](/post/getting-started-with-hibernate/)
 
