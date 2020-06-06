@@ -4,8 +4,12 @@
   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url> 
     <loc>https://jeetprksh.com/</loc> 
+  </url>
+  <url> 
+    <loc>https://jeetprksh.com/post/getting-started-with-mqtt/</loc> 
     <image:image>
-      <image:caption>Jeet Prakash, Full Stack Developer</image:caption>
+      <image:loc> https://jeetprksh.com/post/getting-started-with-mqtt/louis-reed-zDxlNcdUzxk-unsplash.jpg</image:loc>
+      <image:caption>Applications of MQTT in Internet of Things</image:caption>
     </image:image>
   </url>
   <url> 

@@ -19,6 +19,7 @@ You check the resource utilization on that instance and find out that during pea
 
 A few more days went by and your users started to report the same old issue of request timeouts and slowness in the app. But you reconfigured your instance to have more compute power and you thought it was more than enough. You again check resource utilization and find out that the CPU is again working at 100% not just because a lot more users are using the app but spending more time interacting with it. So would you be adding more power to your instance? The number of users will only go up in the future and sooner the app just won’t be able to withstand the load from all of those additional users.
 
+
 ## Enter Scalability
 
 Application was facing the problem because one single instance was getting stretched out of its resources. As a solution we need to scale the application so that it can withstand sudden peaks in usage. 

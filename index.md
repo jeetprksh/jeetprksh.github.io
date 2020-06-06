@@ -3,8 +3,12 @@ layout: default
 canonical_url: 'https://jeetprksh.com'
 title: Jeet Prakash
 description: A Developer's point of view. Everything about Software Engineering, Architecture and Frameworks.
-tags: [jeet, prakash, blog, developer, software]
+tags: [jeet prakash, blog, developer, software]
 ---
+
+## Getting Started with MQTT
+The MQTT protocol is a lightweight protocol that enables small IoT devices to communicate using publish and subscribe model. [(read)](/post/getting-started-with-mqtt/)
+
 
 ## What is Application Scalability?
 What to do when your application starts trending and then drowning in a huge load? [(read)](/post/what-is-application-scalability/)
