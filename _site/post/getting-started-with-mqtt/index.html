@@ -73,6 +73,8 @@
 
 <p>In both of the above commands we have used <code class="highlighter-rouge">-t</code> flag to specify which of the topics to subscribe and publish to. By default both commands will try to find the broker at localhost, if we want the clients to connect to a broker located somewhere else we can use <code class="highlighter-rouge">-h</code> flag for that. Also the message to be published can be specified by <code class="highlighter-rouge">-m</code> flag.</p>
 
+<p>And as soon as we publish a message on terminal running publish client we see the same message appear on the terminal running subscriber client.</p>
+
 <p><img src="./mosquitto-subscribe.png" alt="Subscribing to Broker" title="Subscribing to a topic on Mosquitto Broker" /></p>
 
 <p><img src="./mosquitto-publish.png" alt="Publishing to Broker" title="Publishing to a topic on Mosquitto Broker" /></p>
