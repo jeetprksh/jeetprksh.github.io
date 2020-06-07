@@ -7,7 +7,7 @@ image: https://jeetprksh.com/post/getting-started-with-mqtt/louis-reed-zDxlNcdUz
 tags: [mqtt, iot, eclipse-mosquitto, pub-sub]
 ---
 
-MQTT is a light-weight publish and subscribe protocol which allows low energy devices to exchange messages among each other. It is a simple messaging protocol design for constrained devices having low bandwidth. And hence it has found wide adoption on devices for Internet of Things (IoT) as it enables the IoT devices to receive control commands to do various things like turning the lights on or off.
+MQTT is a light-weight publish and subscribe protocol which allows low energy devices to exchange messages among each other. It is a simple messaging protocol design for resource constrained devices having low bandwidth. And hence it has found wide adoption on devices for Internet of Things (IoT) as it enables the IoT devices to receive control commands to do various things like turning the lights on or off.
 
 There are many brokers available that implement MQTT protocol. I will be using Mosquitto Broker for the purpose of this and future posts.
 
